@@ -3,6 +3,8 @@ import localFont from 'next/font/local';
 import { DM_Sans } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/providers/theme-providers';
+import ModalProvider from '@/providers/modal-provider';
+import { Toaster } from '@/components/ui/toaster';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -36,7 +38,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <ModalProvider>{children}
+            <Toaster />
+          </ModalProvider>
         </ThemeProvider>
       </body>
     </html>
