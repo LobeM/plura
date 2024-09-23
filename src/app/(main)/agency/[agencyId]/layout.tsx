@@ -1,4 +1,5 @@
 import BlurPage from '@/components/global/blur-page';
+import InfoBar from '@/components/global/info-bar';
 import Sidebar from '@/components/sidebar';
 import Unauthorized from '@/components/unauthorized';
 import {
@@ -40,6 +41,7 @@ const Layout = async ({ children, params }: Props) => {
     <div className='h-screen overflow-hidden'>
       <Sidebar id={params.agencyId} type='agency' />
       <div className='md:pl-[300px]'>
+        <InfoBar notifications={allNoti} />
         <div className='relative'>
           <BlurPage>{children}</BlurPage>
         </div>
