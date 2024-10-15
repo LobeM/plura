@@ -184,6 +184,20 @@ const TicketForm = ({ laneId, subaccountId, getNewTicket }: Props) => {
                 </FormItem>
               )}
             />
+            <FormField
+              disabled={isLoading}
+              control={form.control}
+              name='value'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Ticket Value</FormLabel>
+                  <FormControl>
+                    <Input placeholder='Value' {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <h3>Add tags</h3>
             <TagCreator
               subaccountId={subaccountId}
