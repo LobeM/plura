@@ -742,3 +742,12 @@ export const upsertContact = async (
   });
   return response;
 };
+
+export const getFunnels = async (subacountId: string) => {
+  const funnels = await db.funnel.findMany({
+    where: { subAccountId: subacountId },
+    include: { FunnelPages: true },
+  });
+
+  return funnels;
+};
