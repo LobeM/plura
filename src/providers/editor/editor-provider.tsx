@@ -1,5 +1,7 @@
 import { EditorBtns } from '@/lib/constants';
 import { EditorAction } from './editor-actions';
+import { createContext, Dispatch, useContext, useReducer } from 'react';
+import { FunnelPage } from '@prisma/client';
 
 export type DeviceTypes = 'Desktop' | 'Mobile' | 'Tablet';
 
@@ -339,3 +341,51 @@ const editorReducer = (
       return state;
   }
 };
+
+export type EditorContextData = {
+  device: DeviceTypes;
+  previewMode: boolean;
+  setPreviewMode: (previewMode: boolean) => void;
+  setDevice: (device: DeviceTypes) => void;
+};
+
+export const EditorContext = createContext<{
+  state: EditorState;
+  dispatch: Dispatch<EditorAction>;
+  subaccountId: string;
+  funnelId: string;
+  pageDetails: FunnelPage | null;
+}>({
+  state: initialState,
+  dispatch: () => undefined,
+  subaccountId: '',
+  funnelId: '',
+  pageDetails: null,
+});
+
+type EditorProps = {
+  children: React.ReactNode;
+  subaccountId: string;
+  funnelId: string;
+  pageDetails: FunnelPage;
+};
+
+const EditorProvider = (props: EditorProps) => {
+  const [state, dispatch] = useReducer(editorReducer, initialState);
+
+  return (
+    <EditorContext.Provider
+      value={{
+        state,
+        dispatch,
+        subaccountId: props.subaccountId,
+        funnelId: props.funnelId,
+        pageDetails: props.pageDetails,
+      }}
+    >
+      {props.children}
+    </EditorContext.Provider>
+  );
+};
+
+export default EditorProvider;
