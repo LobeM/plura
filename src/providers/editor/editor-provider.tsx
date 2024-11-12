@@ -1,7 +1,7 @@
 'use client';
 import { EditorBtns } from '@/lib/constants';
 import { EditorAction } from './editor-actions';
-import { createContext, Dispatch, useContext, useReducer } from 'react';
+import { createContext, Dispatch, useReducer } from 'react';
 import { FunnelPage } from '@prisma/client';
 
 export type DeviceTypes = 'Desktop' | 'Mobile' | 'Tablet';
@@ -11,7 +11,9 @@ export type EditorElement = {
   styles: React.CSSProperties;
   name: string;
   type: EditorBtns;
-  content: EditorElement[] | { href?: string; innerText?: string };
+  content:
+    | EditorElement[]
+    | { href?: string; innerText?: string; src?: string };
 };
 
 export type Editor = {
