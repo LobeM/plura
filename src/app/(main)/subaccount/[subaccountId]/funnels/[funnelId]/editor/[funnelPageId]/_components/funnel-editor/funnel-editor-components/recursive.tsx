@@ -11,6 +11,8 @@ const Recursive = ({ element }: Props) => {
   switch (element.type) {
     case 'text':
       return <TextComponent element={element} />;
+    case 'container':
+      return <Container element={element} />;
     case '__body':
       return <Container element={element} />;
     default:
