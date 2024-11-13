@@ -9,6 +9,8 @@ import React from 'react';
 import TextPlaceholder from './text-placeholder';
 import ContainerPlaceholder from './container-placeholder';
 import VideoPlaceholder from './video-placeholder';
+import LinkPlaceholder from './link-placeholder';
+import TwoColumnsPlaceholder from './two-columns-placeholder';
 
 const ComponentsTab = () => {
   const elements: {
@@ -30,9 +32,33 @@ const ComponentsTab = () => {
       group: 'layout',
     },
     {
+      Component: <TwoColumnsPlaceholder />,
+      label: '2 Columns',
+      id: '2Col',
+      group: 'layout',
+    },
+    {
       Component: <VideoPlaceholder />,
       label: 'Video',
       id: 'video',
+      group: 'elements',
+    },
+    // {
+    //   Component: <ContactFormComponentPlaceholder />,
+    //   label: 'Contact',
+    //   id: 'contactForm',
+    //   group: 'elements',
+    // },
+    // {
+    //   Component: <CheckoutPlaceholder />,
+    //   label: 'Checkout',
+    //   id: 'paymentForm',
+    //   group: 'elements',
+    // },
+    {
+      Component: <LinkPlaceholder />,
+      label: 'Link',
+      id: 'link',
       group: 'elements',
     },
   ];
