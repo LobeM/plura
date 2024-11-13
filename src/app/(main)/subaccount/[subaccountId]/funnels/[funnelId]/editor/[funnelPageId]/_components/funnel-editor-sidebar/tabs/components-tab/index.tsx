@@ -8,6 +8,7 @@ import { EditorBtns } from '@/lib/constants';
 import React from 'react';
 import TextPlaceholder from './text-placeholder';
 import ContainerPlaceholder from './container-placeholder';
+import VideoPlaceholder from './video-placeholder';
 
 const ComponentsTab = () => {
   const elements: {
@@ -27,6 +28,12 @@ const ComponentsTab = () => {
       label: 'Container',
       id: 'container',
       group: 'layout',
+    },
+    {
+      Component: <VideoPlaceholder />,
+      label: 'Video',
+      id: 'video',
+      group: 'elements',
     },
   ];
 
