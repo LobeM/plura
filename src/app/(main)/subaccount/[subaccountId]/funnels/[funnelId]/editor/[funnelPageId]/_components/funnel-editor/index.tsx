@@ -5,6 +5,7 @@ import { getFunnelPageDetails } from '@/lib/queries';
 import clsx from 'clsx';
 import { EyeOffIcon } from 'lucide-react';
 import React, { useEffect } from 'react';
+import Recursive from './funnel-editor-components/recursive';
 
 type Props = {
   funnelPageId: string;
@@ -76,6 +77,11 @@ const FunnelEditor = ({ funnelPageId, liveMode }: Props) => {
           <EyeOffIcon />
         </Button>
       )}
+
+      {Array.isArray(state.editor.elements) &&
+        state.editor.elements.map((childElement) => (
+          <Recursive key={childElement.id} element={childElement} />
+        ))}
     </div>
   );
 };
