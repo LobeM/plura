@@ -12,6 +12,7 @@ import VideoPlaceholder from './video-placeholder';
 import LinkPlaceholder from './link-placeholder';
 import TwoColumnsPlaceholder from './two-columns-placeholder';
 import ContactFormComponentPlaceholder from './contact-form-placeholder';
+import CheckoutPlaceholder from './checkout-placeholder';
 
 const ComponentsTab = () => {
   const elements: {
@@ -50,12 +51,12 @@ const ComponentsTab = () => {
       id: 'contactForm',
       group: 'elements',
     },
-    // {
-    //   Component: <CheckoutPlaceholder />,
-    //   label: 'Checkout',
-    //   id: 'paymentForm',
-    //   group: 'elements',
-    // },
+    {
+      Component: <CheckoutPlaceholder />,
+      label: 'Checkout',
+      id: 'paymentForm',
+      group: 'elements',
+    },
     {
       Component: <LinkPlaceholder />,
       label: 'Link',
